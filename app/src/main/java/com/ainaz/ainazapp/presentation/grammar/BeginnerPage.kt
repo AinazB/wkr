@@ -1,0 +1,9 @@
+package com.ainaz.ainazapp.presentation.grammar
+
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+
+@Composable
+fun BeginnerPage() {
+    Text("Beginner")
+}

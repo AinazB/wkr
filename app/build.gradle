@@ -77,6 +77,10 @@ dependencies {
     // Navigation
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
+    // Pager
+    implementation "com.google.accompanist:accompanist-pager:0.24.9-beta"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.24.9-beta"
+
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
 
 }
