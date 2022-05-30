@@ -9,11 +9,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
+import com.ainaz.ainazapp.presentation.grammar.model.Topic
 import com.google.accompanist.pager.*
+import dev.chrisbanes.snapper.ExperimentalSnapperApi
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalPagerApi::class, ExperimentalSnapperApi::class)
 @Composable
-fun GrammarScreen() {
+fun GrammarScreen(navController: NavController) {
     val pagerState = rememberPagerState()
     val pages = listOf(
         "Начальный",
@@ -22,8 +25,20 @@ fun GrammarScreen() {
     )
     Column {
         TabLayout(pagerState, pages)
-        HorizontalPager(3, state = pagerState) {
-            Text(text = "page = $currentPage", modifier = Modifier.fillMaxSize())
+        HorizontalPager(
+            3, state = pagerState
+        ) {
+            TopicList(
+                navController = navController,
+                modifier = Modifier.fillMaxSize(),
+                topics = listOf(
+                    Topic("asdfasdfasdf", "asdfasdfasdfasdfasdfasdf"),
+                    Topic("asdfasdfasdf", "asdfasdfasdfasdfasdfasdf"),
+                    Topic("asdfasdfasdf", "asdfasdfasdfasdfasdfasdf")
+                )
+            ) {
+
+            }
         }
     }
 
@@ -31,7 +46,7 @@ fun GrammarScreen() {
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun TabLayout(pagerState: PagerState, pages: List<String>, onPageSelected: (PagerState) -> Unit) {
+fun TabLayout(pagerState: PagerState, pages: List<String>) {
     TabRow(
         selectedTabIndex = pagerState.currentPage,
         backgroundColor = Color.White,

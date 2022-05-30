@@ -5,6 +5,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import com.ainaz.ainazapp.presentation.theme.Purple200
+import com.ainaz.ainazapp.presentation.theme.Purple500
+import com.ainaz.ainazapp.presentation.theme.Purple700
+import com.ainaz.ainazapp.presentation.theme.Teal200
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
