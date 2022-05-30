@@ -11,6 +11,7 @@ import com.ainaz.ainazapp.presentation.grammar.GrammarScreen
 import com.ainaz.ainazapp.presentation.grammar.TopicDetail
 import com.ainaz.ainazapp.presentation.navigation.NavScreen
 import com.ainaz.ainazapp.presentation.dictionary.SearchScreen
+import com.ainaz.ainazapp.presentation.test.TestScreen
 
 @Composable
 fun MainScreen(
@@ -30,7 +31,7 @@ fun MainScreen(
         }
 
         composable(NavScreen.TestScreen.route) {
-            SearchScreen()
+            TestScreen()
         }
 
         composable(
