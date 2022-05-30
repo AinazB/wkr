@@ -13,7 +13,9 @@ import com.ainaz.ainazapp.presentation.main.MainScreen
 import com.ainaz.ainazapp.presentation.main.components.BottomNavigationBar
 import com.ainaz.ainazapp.presentation.main.components.provideBottomNavItems
 import com.ainaz.ainazapp.ui.theme.AinazAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,11 +7,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import androidx.navigation.navigation
 import com.ainaz.ainazapp.presentation.grammar.GrammarScreen
 import com.ainaz.ainazapp.presentation.grammar.TopicDetail
 import com.ainaz.ainazapp.presentation.navigation.NavScreen
-import com.ainaz.ainazapp.presentation.search.SearchScreen
+import com.ainaz.ainazapp.presentation.dictionary.SearchScreen
 
 @Composable
 fun MainScreen(
