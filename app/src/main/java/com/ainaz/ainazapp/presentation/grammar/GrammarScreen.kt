@@ -2,17 +2,18 @@ package com.ainaz.ainazapp.presentation.grammar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Tab
-import androidx.compose.material.TabRow
-import androidx.compose.material.TabRowDefaults
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ainaz.ainazapp.presentation.grammar.model.Topic
+import com.ainaz.ainazapp.presentation.grammar.model.beginner
 import com.google.accompanist.pager.*
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalSnapperApi::class)
 @Composable
@@ -31,11 +32,8 @@ fun GrammarScreen(navController: NavController) {
             TopicList(
                 navController = navController,
                 modifier = Modifier.fillMaxSize(),
-                topics = listOf(
-                    Topic("asdfasdfasdf", "asdfasdfasdfasdfasdfasdf"),
-                    Topic("asdfasdfasdf", "asdfasdfasdfasdfasdfasdf"),
-                    Topic("asdfasdfasdf", "asdfasdfasdfasdfasdfasdf")
-                )
+                topics = beginner
+
             ) {
 
             }
@@ -47,7 +45,8 @@ fun GrammarScreen(navController: NavController) {
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun TabLayout(pagerState: PagerState, pages: List<String>) {
-    TabRow(
+    val scope = rememberCoroutineScope()
+    ScrollableTabRow(
         selectedTabIndex = pagerState.currentPage,
         backgroundColor = Color.White,
         indicator = { tabPositions ->
@@ -58,10 +57,16 @@ fun TabLayout(pagerState: PagerState, pages: List<String>) {
     ) {
         pages.forEachIndexed { index, title ->
             Tab(
-                text = { Text(text = title) },
+                text = {
+                    Text(
+                        text = title, fontSize = 16.sp
+                    )
+                },
                 selected = pagerState.currentPage == index,
                 onClick = {
-
+                    scope.launch {
+                        pagerState.animateScrollToPage(index)
+                    }
                 }
             )
         }
