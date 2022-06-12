@@ -202,7 +202,7 @@ private fun SurveyBottomBar(
                         .height(48.dp),
                     onClick = onPreviousPressed
                 ) {
-                    Text(text = "Previous")
+                    Text(text = "предыдущий")
                 }
                 Spacer(modifier = Modifier.width(16.dp))
             }
@@ -224,7 +224,7 @@ private fun SurveyBottomBar(
                     onClick = onNextPressed,
                     enabled = questionState.enableNext
                 ) {
-                    Text(text = "next")
+                    Text(text = "Следующий")
                 }
             }
         }

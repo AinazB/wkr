@@ -1,9 +1,15 @@
 package com.ainaz.ainazapp.di
 
+import com.ainaz.ainazapp.data.model.translate.TranslationDTO
 import com.ainaz.ainazapp.data.remote.DictionaryApi
+import com.ainaz.ainazapp.data.remote.TranslatorApi
+import com.ainaz.ainazapp.data.remote.TranslatorApi.Companion.BASE_URL
+import com.ainaz.ainazapp.data.repository.TranslateRepositoryImpl
 import com.ainaz.ainazapp.data.repository.WordInfoRepositoryImpl
+import com.ainaz.ainazapp.domain.repository.TranslateRepository
 import com.ainaz.ainazapp.domain.repository.WordInfoRepository
 import com.ainaz.ainazapp.domain.usecase.GetWordInfo
+import com.ainaz.ainazapp.domain.usecase.Translate
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,5 +44,29 @@ object WordInfoModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(DictionaryApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTranslatorApi(): TranslatorApi {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(TranslatorApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTranslateUseCase(repository: TranslateRepository): Translate {
+        return Translate(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTranslateRepository(
+        api: TranslatorApi
+    ): TranslateRepository {
+        return TranslateRepositoryImpl(api)
     }
 }

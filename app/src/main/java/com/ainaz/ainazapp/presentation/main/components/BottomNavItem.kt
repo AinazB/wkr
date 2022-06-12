@@ -17,9 +17,9 @@ fun provideBottomNavItems() = listOf(
         NavScreen.GrammarScreen.route
     ),
     BottomNavItem(
-        NavScreen.SearchScreen.route,
-        R.drawable.ic_search,
-        NavScreen.SearchScreen.route
+        NavScreen.DictionaryScreen.route,
+        R.drawable.ic_menu_dictionary,
+        NavScreen.DictionaryScreen.route
     ),
     BottomNavItem(
         NavScreen.TestScreen.route,

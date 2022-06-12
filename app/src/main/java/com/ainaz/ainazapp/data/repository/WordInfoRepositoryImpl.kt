@@ -1,7 +1,7 @@
 package com.ainaz.ainazapp.data.repository
 
 import com.ainaz.ainazapp.data.remote.DictionaryApi
-import com.ainaz.ainazapp.domain.model.WordInfo
+import com.ainaz.ainazapp.domain.model.dictionary.WordInfo
 import com.ainaz.ainazapp.domain.repository.WordInfoRepository
 import com.ainaz.ainazapp.util.Resource
 import kotlinx.coroutines.flow.Flow

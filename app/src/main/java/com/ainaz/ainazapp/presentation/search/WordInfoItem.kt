@@ -1,4 +1,4 @@
-package com.ainaz.ainazapp.presentation.dictionary
+package com.ainaz.ainazapp.presentation.search
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ainaz.ainazapp.domain.model.WordInfo
+import com.ainaz.ainazapp.domain.model.dictionary.WordInfo
 
 @Composable
 fun WordInfoItem(

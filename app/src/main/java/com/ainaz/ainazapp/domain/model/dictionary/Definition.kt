@@ -1,4 +1,4 @@
-package com.ainaz.ainazapp.domain.model
+package com.ainaz.ainazapp.domain.model.dictionary
 
 data class Definition(
     val antonyms: List<String>,

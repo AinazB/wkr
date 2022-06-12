@@ -1,6 +1,6 @@
 package com.ainaz.ainazapp.data.remote
 
-import com.ainaz.ainazapp.data.model.WordInfoDto
+import com.ainaz.ainazapp.data.model.dictionary.WordInfoDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 

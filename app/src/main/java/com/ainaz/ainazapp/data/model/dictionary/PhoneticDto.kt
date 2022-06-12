@@ -1,4 +1,4 @@
-package com.ainaz.ainazapp.data.model
+package com.ainaz.ainazapp.data.model.dictionary
 
 
 data class PhoneticDto(

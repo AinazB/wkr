@@ -1,4 +1,4 @@
-package com.ainaz.ainazapp.presentation.search
+package com.ainaz.ainazapp.presentation.yandexsearch
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -9,11 +9,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.ainaz.ainazapp.presentation.search.WordInfoItem
 import com.ainaz.ainazapp.ui.theme.AinazAppTheme
 
 @Composable
-fun SearchScreen() {
-    val viewModel: SearchViewModel = hiltViewModel()
+fun YandexSearchScreen() {
+
+    val viewModel: YandexSearchVM = hiltViewModel()
     val state = viewModel.state.value
 
     AinazAppTheme {
@@ -31,21 +33,21 @@ fun SearchScreen() {
                     onValueChange = viewModel::onSearch,
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = {
-                        Text(text = "Search...")
+                        Text(text = "Поиск...")
                     }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 LazyColumn(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    items(state.wordInfoItems.size) { i ->
-                        val wordInfo = state.wordInfoItems[i]
+
+                    items(state.result.def.size) { i ->
+                        val wordInfo = state.result.def[i]
                         if (i > 0) {
                             Spacer(modifier = Modifier.height(8.dp))
                         }
-                        WordInfoItem(wordInfo = wordInfo)
-                        if (i < state.wordInfoItems.size - 1) {
-                            Divider()
+                        wordInfo.tr.forEach {
+                            Text(text = it.text)
                         }
                     }
                 }

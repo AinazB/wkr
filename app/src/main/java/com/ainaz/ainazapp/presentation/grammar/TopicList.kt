@@ -16,7 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ainaz.ainazapp.presentation.grammar.model.Topic
-import com.ainaz.ainazapp.presentation.navigation.NavScreen
 import com.ainaz.ainazapp.presentation.theme.cardBackgroundColor2
 
 @Composable
@@ -33,6 +32,8 @@ fun TopicList(
             }
         }
     }
+
+
 }
 
 @OptIn(ExperimentalMaterialApi::class)

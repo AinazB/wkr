@@ -1,8 +1,8 @@
-package com.ainaz.ainazapp.presentation.dictionary
+package com.ainaz.ainazapp.presentation.search
 
-import com.ainaz.ainazapp.domain.model.WordInfo
+import com.ainaz.ainazapp.domain.model.dictionary.WordInfo
 
-data class DictionaryState(
+data class SearchState(
     val wordInfoItems: List<WordInfo> = emptyList(),
     val isLoading: Boolean = false
 )

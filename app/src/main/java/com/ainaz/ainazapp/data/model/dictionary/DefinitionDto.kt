@@ -1,6 +1,6 @@
-package com.ainaz.ainazapp.data.model
+package com.ainaz.ainazapp.data.model.dictionary
 
-import com.ainaz.ainazapp.domain.model.Definition
+import com.ainaz.ainazapp.domain.model.dictionary.Definition
 
 
 data class DefinitionDto(

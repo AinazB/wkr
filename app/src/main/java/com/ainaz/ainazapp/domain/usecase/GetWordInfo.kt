@@ -1,6 +1,6 @@
 package com.ainaz.ainazapp.domain.usecase
 
-import com.ainaz.ainazapp.domain.model.WordInfo
+import com.ainaz.ainazapp.domain.model.dictionary.WordInfo
 import com.ainaz.ainazapp.domain.repository.WordInfoRepository
 import com.ainaz.ainazapp.util.Resource
 import kotlinx.coroutines.flow.Flow

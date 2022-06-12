@@ -10,7 +10,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ainaz.ainazapp.presentation.grammar.model.Topic
+import com.ainaz.ainazapp.presentation.grammar.model.advanced
 import com.ainaz.ainazapp.presentation.grammar.model.beginner
+import com.ainaz.ainazapp.presentation.grammar.model.intermediate
 import com.google.accompanist.pager.*
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import kotlinx.coroutines.launch
@@ -29,14 +31,36 @@ fun GrammarScreen(navController: NavController) {
         HorizontalPager(
             3, state = pagerState
         ) {
-            TopicList(
-                navController = navController,
-                modifier = Modifier.fillMaxSize(),
-                topics = beginner
+            when(pagerState.currentPage) {
+                0 -> {
+                    TopicList(
+                        navController = navController,
+                        modifier = Modifier.fillMaxSize(),
+                        topics = beginner
+                    ) {
 
-            ) {
+                    }
+                }
+                1 -> {
+                    TopicList(
+                        navController = navController,
+                        modifier = Modifier.fillMaxSize(),
+                        topics = intermediate
+                    ) {
 
+                    }
+                }
+                2 -> {
+                    TopicList(
+                        navController = navController,
+                        modifier = Modifier.fillMaxSize(),
+                        topics = advanced
+                    ) {
+
+                    }
+                }
             }
+
         }
     }
 
