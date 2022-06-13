@@ -43,7 +43,9 @@ fun YandexSearchScreen() {
 
                     items(state.result.def.size) { i ->
                         val def = state.result.def[i]
-                        WordItem(def)
+                        WordItem(def) {
+                            viewModel.insertWordIntoUserDictionary(it)
+                        }
                         Spacer(modifier = Modifier.height(16.dp))
                     }
                 }

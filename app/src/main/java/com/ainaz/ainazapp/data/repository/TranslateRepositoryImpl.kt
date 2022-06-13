@@ -1,6 +1,6 @@
 package com.ainaz.ainazapp.data.repository
 
-import com.ainaz.ainazapp.data.model.translate.TranslationDTO
+import com.ainaz.ainazapp.data.model.translate.remote.TranslationDTO
 import com.ainaz.ainazapp.data.remote.TranslatorApi
 import com.ainaz.ainazapp.domain.repository.TranslateRepository
 import com.ainaz.ainazapp.util.Resource

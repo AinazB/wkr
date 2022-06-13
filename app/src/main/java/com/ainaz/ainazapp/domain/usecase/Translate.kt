@@ -1,6 +1,6 @@
 package com.ainaz.ainazapp.domain.usecase
 
-import com.ainaz.ainazapp.data.model.translate.TranslationDTO
+import com.ainaz.ainazapp.data.model.translate.remote.TranslationDTO
 import com.ainaz.ainazapp.domain.repository.TranslateRepository
 import com.ainaz.ainazapp.util.Resource
 import kotlinx.coroutines.flow.Flow

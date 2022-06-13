@@ -4,11 +4,14 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ainaz.ainazapp.data.model.translate.TranslationDTO
+import com.ainaz.ainazapp.data.model.translate.remote.TranslationDTO
+import com.ainaz.ainazapp.data.repository.UserDictionaryRepositoryImpl
+import com.ainaz.ainazapp.domain.model.localdictionary.Word
 import com.ainaz.ainazapp.domain.usecase.Translate
 import com.ainaz.ainazapp.presentation.search.SearchViewModel
 import com.ainaz.ainazapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -19,7 +22,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class YandexSearchVM @Inject constructor(val translate: Translate) : ViewModel() {
+class YandexSearchVM @Inject constructor(
+    val translate: Translate,
+    val userDictionaryRepositoryImpl: UserDictionaryRepositoryImpl
+) : ViewModel() {
 
     private val _searchQuery = mutableStateOf("")
     val searchQuery: State<String> = _searchQuery
@@ -60,6 +66,12 @@ class YandexSearchVM @Inject constructor(val translate: Translate) : ViewModel()
                         }
                     }
                 }.launchIn(this)
+        }
+    }
+
+    fun insertWordIntoUserDictionary(word: Word) {
+        viewModelScope.launch(Dispatchers.IO) {
+            userDictionaryRepositoryImpl.addNewWord(word)
         }
     }
 }

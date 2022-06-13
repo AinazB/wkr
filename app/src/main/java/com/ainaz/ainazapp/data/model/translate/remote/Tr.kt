@@ -1,5 +1,8 @@
-package com.ainaz.ainazapp.data.model.translate
+package com.ainaz.ainazapp.data.model.translate.remote
 
+import androidx.room.Entity
+
+@Entity
 data class Tr(
     val asp: String,
     val ex: List<Ex>,

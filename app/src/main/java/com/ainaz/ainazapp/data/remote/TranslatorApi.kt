@@ -1,6 +1,6 @@
 package com.ainaz.ainazapp.data.remote
 
-import com.ainaz.ainazapp.data.model.translate.TranslationDTO
+import com.ainaz.ainazapp.data.model.translate.remote.TranslationDTO
 import retrofit2.http.GET
 import retrofit2.http.Query
 

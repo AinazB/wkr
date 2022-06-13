@@ -1,7 +1,6 @@
 package com.ainaz.ainazapp.presentation.yandexsearch
 
-import com.ainaz.ainazapp.data.model.translate.Head
-import com.ainaz.ainazapp.data.model.translate.TranslationDTO
+import com.ainaz.ainazapp.data.model.translate.remote.TranslationDTO
 
 data class SearchState(
     val result: TranslationDTO = TranslationDTO(emptyList()),

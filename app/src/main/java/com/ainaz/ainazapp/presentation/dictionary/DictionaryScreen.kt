@@ -13,20 +13,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ainaz.ainazapp.domain.model.dictionary.WordInfo
+import com.ainaz.ainazapp.domain.model.localdictionary.Word
 import com.ainaz.ainazapp.presentation.navigation.NavScreen
 import com.ainaz.ainazapp.presentation.theme.cardBackgroundColor2
 
 @Composable
 fun DictionaryScreen(navController: NavController) {
-    Column {
+    val viewModel: DictionaryVM = hiltViewModel()
+    val uiState = viewModel.state
+
+    Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {
+
         LazyColumn {
             item {
                 HeaderItem { navController.navigate(NavScreen.SearchScreen.route) }
             }
-            items(words) { word ->
-                WordItem(wordInfo = word) {
+            items(uiState.value.result) { word ->
+                WordItem(word = word) {
 
                 }
             }
@@ -48,6 +54,9 @@ fun DictionaryScreen(navController: NavController) {
                 Text(text = "Добавить", fontWeight = FontWeight.Bold)
             }
 
+        }
+        if (uiState.value.isLoading) {
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
         }
 
     }
@@ -78,7 +87,7 @@ fun HeaderItem(onClick: () -> Unit) {
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun WordItem(wordInfo: WordInfo, onClick: () -> Unit) {
+fun WordItem(word: Word, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -91,12 +100,12 @@ fun WordItem(wordInfo: WordInfo, onClick: () -> Unit) {
                 .padding(16.dp)
         ) {
             Text(
-                text = wordInfo.word,
+                text = word.text,
                 style = MaterialTheme.typography.h6,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = wordInfo.origin,
+                text = word.translation,
                 style = MaterialTheme.typography.subtitle1,
                 modifier = Modifier.padding(top = 8.dp)
             )
@@ -104,22 +113,23 @@ fun WordItem(wordInfo: WordInfo, onClick: () -> Unit) {
     }
 }
 
-val words = listOf(
-    WordInfo(word = "Well", translation = "Хорошо", origin = "in a good or satisfactory way."),
-    WordInfo(
-        word = "Room",
-        translation = "Комната",
-        origin = "an extent of space occupied by or sufficient or available for something."
-    ),
-    WordInfo(word = "Very", translation = "Очень", origin = "in a high degree."),
-    WordInfo(
-        word = "Slice",
-        translation = "Ломтик",
-        origin = "a thin, broad piece of food, such as bread, meat, or cake, cut from a larger portion."
-    ),
-    WordInfo(
-        word = "Enhance",
-        translation = "Усиливать",
-        origin = "intensify, increase, or further improve the quality, value, or extent of."
-    ),
-)
+//val words = listOf(
+//    WordInfo(word = "Well", translation = "Хорошо", origin = "in a good or satisfactory way."),
+//    WordInfo(
+//        word = "Room",
+//        translation = "Комната",
+//        origin = "an extent of space occupied by or sufficient or available for something."
+//    ),
+//    WordInfo(word = "Very", translation = "Очень", origin = "in a high degree."),
+//    WordInfo(
+//        word = "Slice",
+//        translation = "Ломтик",
+//        origin = "a thin, broad piece of food, such as bread, meat, or cake, cut from a larger portion."
+//    ),
+//    WordInfo(
+//        word = "Enhance",
+//        translation = "Усиливать",
+//        origin = "intensify, increase, or further improve the quality, value, or extent of."
+//    ),
+//)
+//

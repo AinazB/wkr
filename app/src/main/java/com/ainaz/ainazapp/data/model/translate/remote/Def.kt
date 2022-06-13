@@ -1,4 +1,4 @@
-package com.ainaz.ainazapp.data.model.translate
+package com.ainaz.ainazapp.data.model.translate.remote
 
 data class Def (
     val pos: String,

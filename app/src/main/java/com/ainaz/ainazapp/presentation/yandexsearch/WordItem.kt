@@ -2,35 +2,57 @@ package com.ainaz.ainazapp.presentation.yandexsearch
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ainaz.ainazapp.data.model.translate.Def
-import com.ainaz.ainazapp.data.model.translate.Ex
+import com.ainaz.ainazapp.data.model.translate.remote.Def
+import com.ainaz.ainazapp.data.model.translate.remote.Ex
+import com.ainaz.ainazapp.domain.model.localdictionary.Word
 
 
 @Composable
-fun WordItem(def: Def, modifier: Modifier = Modifier) {
+fun WordItem(def: Def, modifier: Modifier = Modifier, onClick: (Word) -> Unit) {
     Card(
         modifier = modifier
             .fillMaxWidth(),
         shape = RoundedCornerShape(8.dp)
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
         ) {
-            Text(
-                text = "${def.text} (${def.pos})",
-                fontWeight = FontWeight.Bold,
-                fontSize = 28.sp,
-            )
+            Row(horizontalArrangement = Arrangement.SpaceBetween) {
+                Text(
+                    text = "${def.text} (${def.pos})",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 28.sp,
+                )
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = null,
+                    Modifier.clickable {
+                        onClick(
+                            Word(
+                                text = def.text,
+                                translation = def?.tr[0]?.text,
+                                transcription = def.ts,
+                                pos = def.pos,
+                                0
+                            )
+                        )
+                    })
+            }
+
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(text = def.ts)
