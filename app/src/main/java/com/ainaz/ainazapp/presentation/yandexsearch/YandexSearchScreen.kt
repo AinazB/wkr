@@ -42,13 +42,9 @@ fun YandexSearchScreen() {
                 ) {
 
                     items(state.result.def.size) { i ->
-                        val wordInfo = state.result.def[i]
-                        if (i > 0) {
-                            Spacer(modifier = Modifier.height(8.dp))
-                        }
-                        wordInfo.tr.forEach {
-                            Text(text = it.text)
-                        }
+                        val def = state.result.def[i]
+                        WordItem(def)
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
                 }
             }
