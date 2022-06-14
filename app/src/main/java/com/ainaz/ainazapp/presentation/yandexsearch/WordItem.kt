@@ -10,10 +10,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ainaz.ainazapp.R
 import com.ainaz.ainazapp.data.model.translate.remote.Def
 import com.ainaz.ainazapp.data.model.translate.remote.Ex
 import com.ainaz.ainazapp.domain.model.localdictionary.Word
@@ -31,12 +34,17 @@ fun WordItem(def: Def, modifier: Modifier = Modifier, onClick: (Word) -> Unit) {
                 .fillMaxWidth()
                 .padding(16.dp),
         ) {
-            Row(horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
+            ) {
                 Text(
                     text = "${def.text} (${def.pos})",
                     fontWeight = FontWeight.Bold,
                     fontSize = 28.sp,
                 )
+
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = null,
@@ -100,7 +108,9 @@ fun ExampleItem(example: Ex) {
             ) {
                 Text(text = example.text, fontSize = 16.sp)
                 if (!expanded) {
-                    Icon(imageVector = Icons.Default.Info, contentDescription = null)
+                    //Icon(imageVector = Icons.Default.Info, contentDescription = null)
+                    Icon(painter = painterResource(id = R.drawable.ic_baseline_translate_24), null)
+
                 }
             }
             if (expanded) {

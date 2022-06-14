@@ -13,9 +13,9 @@ data class Word(
         return WordInfo(
             text = text,
             translation = translation,
-            transcription = "",
-            pos = "",
-            iteration = 0
+            transcription = transcription,
+            pos = pos,
+            iteration = iteration
         )
     }
 }

@@ -8,9 +8,13 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -24,21 +28,46 @@ import com.ainaz.ainazapp.presentation.theme.cardBackgroundColor2
 fun DictionaryScreen(navController: NavController) {
     val viewModel: DictionaryVM = hiltViewModel()
     val uiState = viewModel.state
+    val showWordInfoDialog = remember { mutableStateOf(false) }
 
-    Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {
+    if (showWordInfoDialog.value) {
+        WordInfoDialog(showState = showWordInfoDialog)
+    }
 
-        LazyColumn {
-            item {
-                HeaderItem { navController.navigate(NavScreen.SearchScreen.route) }
-            }
-            items(uiState.value.result) { word ->
-                WordItem(word = word) {
-
+    if (uiState.value.result.isEmpty()) {
+        EmptyListPlaceHolder()
+    }
+    Box(Modifier.fillMaxHeight()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            LazyColumn {
+                item {
+                    HeaderItem { navController.navigate(NavScreen.SearchScreen.route) }
+                }
+                items(uiState.value.result) { word ->
+                    WordItem(word = word) {
+                        showWordInfoDialog.value = true
+                    }
+                }
+                item {
+                    Spacer(modifier = Modifier.height(100.dp))
                 }
             }
 
+            if (uiState.value.isLoading) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+            }
+
         }
-        Row(modifier = Modifier.fillMaxWidth()) {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+        ) {
             OutlinedButton(
                 modifier = Modifier
                     .weight(0.5f)
@@ -53,14 +82,8 @@ fun DictionaryScreen(navController: NavController) {
                 onClick = { /*TODO*/ }) {
                 Text(text = "Добавить", fontWeight = FontWeight.Bold)
             }
-
         }
-        if (uiState.value.isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
-        }
-
     }
-
 }
 
 @Composable
@@ -100,16 +123,38 @@ fun WordItem(word: Word, onClick: () -> Unit) {
                 .padding(16.dp)
         ) {
             Text(
-                text = word.text,
+                text = "${word.text} (${word.pos})",
                 style = MaterialTheme.typography.h6,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = word.translation,
+                text = word.transcription,
                 style = MaterialTheme.typography.subtitle1,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+            Text(
+                text = word.translation,
+                style = MaterialTheme.typography.body1,
                 modifier = Modifier.padding(top = 8.dp)
             )
         }
+    }
+}
+
+@Composable
+fun EmptyListPlaceHolder() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Ваш список пуст", fontWeight = FontWeight.Bold, fontSize = 24.sp)
+        Text(
+            "Вы можете добавить новые слова в общем словаре (иконка поиск) или нажав на кнопку добавить.",
+            style = MaterialTheme.typography.subtitle1,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Center
+        )
     }
 }
 
