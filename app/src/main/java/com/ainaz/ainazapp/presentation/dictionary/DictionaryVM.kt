@@ -50,4 +50,10 @@ class DictionaryVM @Inject constructor(val userDictionaryRepositoryImpl: UserDic
             }.launchIn(this)
         }
     }
+
+    fun addNewWord(word: Word) {
+        viewModelScope.launch(Dispatchers.IO) {
+            userDictionaryRepositoryImpl.addNewWord(word)
+        }
+    }
 }

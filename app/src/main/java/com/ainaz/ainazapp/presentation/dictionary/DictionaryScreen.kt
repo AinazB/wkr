@@ -29,9 +29,22 @@ fun DictionaryScreen(navController: NavController) {
     val viewModel: DictionaryVM = hiltViewModel()
     val uiState = viewModel.state
     val showWordInfoDialog = remember { mutableStateOf(false) }
+    val showAddNewWordDialog = remember { mutableStateOf(false) }
 
     if (showWordInfoDialog.value) {
         WordInfoDialog(showState = showWordInfoDialog)
+    }
+
+    if (showAddNewWordDialog.value) {
+        AddNewWordDialog(showState = showAddNewWordDialog) { word, translate, note ->
+            viewModel.addNewWord(
+                Word(
+                    text = word,
+                    translation = translate,
+                    note = note
+                )
+            )
+        }
     }
 
     if (uiState.value.result.isEmpty()) {
@@ -79,7 +92,7 @@ fun DictionaryScreen(navController: NavController) {
                 modifier = Modifier
                     .weight(0.5f)
                     .padding(16.dp),
-                onClick = { /*TODO*/ }) {
+                onClick = { navController.navigate(NavScreen.SearchScreen.route) }) {
                 Text(text = "Добавить", fontWeight = FontWeight.Bold)
             }
         }
@@ -88,24 +101,14 @@ fun DictionaryScreen(navController: NavController) {
 
 @Composable
 fun HeaderItem(onClick: () -> Unit) {
-    Row(
+    Text(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = "Мой список",
-            fontWeight = FontWeight.Bold,
-            fontSize = 22.sp,
-        )
-
-        IconButton(onClick = { onClick() }) {
-            Icon(imageVector = Icons.Filled.Search, contentDescription = "")
-        }
-    }
-
+        text = "Мой список",
+        fontWeight = FontWeight.Bold,
+        fontSize = 26.sp,
+    )
 }
 
 @OptIn(ExperimentalMaterialApi::class)

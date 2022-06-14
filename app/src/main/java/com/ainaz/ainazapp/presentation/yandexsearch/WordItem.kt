@@ -51,11 +51,11 @@ fun WordItem(def: Def, modifier: Modifier = Modifier, onClick: (Word) -> Unit) {
                     Modifier.clickable {
                         onClick(
                             Word(
-                                text = def.text,
+                                text = def?.text ?: "",
                                 translation = def?.tr[0]?.text,
-                                transcription = def.ts,
-                                pos = def.pos,
-                                0
+                                transcription = def?.ts ?: "",
+                                pos = def?.pos  ?: "",
+                                iteration = 0
                             )
                         )
                     })
@@ -63,7 +63,7 @@ fun WordItem(def: Def, modifier: Modifier = Modifier, onClick: (Word) -> Unit) {
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            Text(text = def.ts)
+            Text(text = def?.ts ?: "")
             Spacer(modifier = Modifier.height(4.dp))
 
             val translations = def.copy().tr.joinToString(

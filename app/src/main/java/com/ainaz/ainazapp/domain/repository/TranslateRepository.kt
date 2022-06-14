@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface TranslateRepository {
 
-    fun translate(text: String): Flow<Resource<TranslationDTO>>
+    fun translate(text: String, lang: String): Flow<Resource<TranslationDTO>>
 }

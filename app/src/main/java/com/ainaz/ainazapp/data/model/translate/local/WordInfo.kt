@@ -12,6 +12,7 @@ data class WordInfo(
     val translation: String?,
     val transcription: String?,
     val pos: String?,
+    val note: String?,
     val iteration: Int?
 ) {
     fun mapToDomain(): Word {
@@ -20,6 +21,7 @@ data class WordInfo(
             translation ?: "",
             transcription ?: "",
             pos ?: "",
+            note ?: "",
             iteration ?: 0
         )
     }

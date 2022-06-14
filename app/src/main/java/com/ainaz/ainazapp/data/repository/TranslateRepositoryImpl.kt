@@ -8,10 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class TranslateRepositoryImpl(private val translatorApi: TranslatorApi) : TranslateRepository {
-
-    override fun translate(text: String): Flow<Resource<TranslationDTO>> = flow {
+    override fun translate(text: String, lang: String): Flow<Resource<TranslationDTO>> = flow {
         emit(Resource.Loading())
-        val result = translatorApi.translate(text = text)
+        val result = translatorApi.translate(text = text, lang = lang)
         emit(Resource.Success(result))
     }
 }

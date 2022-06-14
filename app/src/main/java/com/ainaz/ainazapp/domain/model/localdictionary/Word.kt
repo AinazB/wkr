@@ -7,6 +7,7 @@ data class Word(
     val translation: String = "",
     val transcription: String = "",
     val pos: String = "",
+    val note: String = "",
     val iteration: Int = 0
 ) {
     fun mapToWordDto(): WordInfo {
@@ -15,6 +16,7 @@ data class Word(
             translation = translation,
             transcription = transcription,
             pos = pos,
+            note = note,
             iteration = iteration
         )
     }

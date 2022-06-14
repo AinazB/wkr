@@ -10,10 +10,10 @@ class Translate(
     private val repository: TranslateRepository
 ) {
 
-    operator fun invoke(text: String): Flow<Resource<TranslationDTO>> {
+    operator fun invoke(text: String, lang: String = "en-ru"): Flow<Resource<TranslationDTO>> {
         if (text.isBlank()) {
             return flow {}
         }
-        return repository.translate(text)
+        return repository.translate(text, lang)
     }
 }

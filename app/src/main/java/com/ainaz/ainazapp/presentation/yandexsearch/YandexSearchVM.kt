@@ -38,12 +38,14 @@ class YandexSearchVM @Inject constructor(
 
     private var searchJob: Job? = null
 
+    var lang: String = "en-ru"
+
     fun onSearch(query: String) {
         _searchQuery.value = query
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(500L)
-            translate(query)
+            translate(query, lang)
                 .onEach { result ->
                     when (result) {
                         is Resource.Success -> {
