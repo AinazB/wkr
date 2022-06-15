@@ -17,6 +17,11 @@ fun provideBottomNavItems() = listOf(
         NavScreen.GrammarScreen.route
     ),
     BottomNavItem(
+        NavScreen.VocabularyScreen.route,
+        R.drawable.ic_courses,
+        NavScreen.VocabularyScreen.route
+    ),
+    BottomNavItem(
         NavScreen.DictionaryScreen.route,
         R.drawable.ic_menu_dictionary,
         NavScreen.DictionaryScreen.route

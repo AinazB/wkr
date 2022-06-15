@@ -21,8 +21,9 @@ data class WordInfo(
             translation ?: "",
             transcription ?: "",
             pos ?: "",
+            pos ?: "",
             note ?: "",
-            iteration ?: 0
+            iteration = iteration ?: 0
         )
     }
 }

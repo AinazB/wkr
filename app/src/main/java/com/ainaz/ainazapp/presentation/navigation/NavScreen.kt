@@ -7,6 +7,7 @@ sealed class NavScreen(val route: String) {
     object DictionaryScreen : NavScreen(route = "Dictionary")
     object YandexSearchScreen : NavScreen(route = "YandexSearchScreen")
     object LearnScreen : NavScreen(route = "LearnScreen")
+    object VocabularyScreen: NavScreen(route = "Vocabulary")
 
     object TopicDetail : NavScreen(route = "TopicDetail/{topicId}")
 }

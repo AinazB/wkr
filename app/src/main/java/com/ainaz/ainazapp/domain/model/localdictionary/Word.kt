@@ -6,6 +6,7 @@ data class Word(
     val text: String = "",
     val translation: String = "",
     val transcription: String = "",
+    val description: String = "",
     val pos: String = "",
     val note: String = "",
     val iteration: Int = 0

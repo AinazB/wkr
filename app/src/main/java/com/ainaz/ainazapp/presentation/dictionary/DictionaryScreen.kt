@@ -85,7 +85,9 @@ fun DictionaryScreen(navController: NavController) {
                 modifier = Modifier
                     .weight(0.5f)
                     .padding(16.dp),
-                onClick = { /*TODO*/ }) {
+                onClick = {
+                    navController.navigate(NavScreen.LearnScreen.route)
+                }) {
                 Text(text = "Учить", fontWeight = FontWeight.Bold)
             }
             OutlinedButton(
@@ -125,8 +127,9 @@ fun WordItem(word: Word, onClick: () -> Unit) {
             modifier = Modifier
                 .padding(16.dp)
         ) {
+            val addition = if (word.pos.isNotBlank()) "(${word.pos})" else ""
             Text(
-                text = "${word.text} (${word.pos})",
+                text = "${word.text} $addition",
                 style = MaterialTheme.typography.h6,
                 fontWeight = FontWeight.Bold
             )

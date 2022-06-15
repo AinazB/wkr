@@ -13,6 +13,7 @@ import com.ainaz.ainazapp.presentation.grammar.TopicDetail
 import com.ainaz.ainazapp.presentation.learn.LearnWordsScreen
 import com.ainaz.ainazapp.presentation.navigation.NavScreen
 import com.ainaz.ainazapp.presentation.test.TestScreen
+import com.ainaz.ainazapp.presentation.vocabulary.VocabularyScreen
 import com.ainaz.ainazapp.presentation.yandexsearch.YandexSearchScreen
 
 @Composable
@@ -26,6 +27,10 @@ fun MainScreen(
     ) {
         composable(NavScreen.GrammarScreen.route) {
             GrammarScreen(navController = navController)
+        }
+
+        composable(NavScreen.VocabularyScreen.route) {
+            VocabularyScreen()
         }
 
         composable(NavScreen.SearchScreen.route) {
