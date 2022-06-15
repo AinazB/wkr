@@ -83,7 +83,7 @@ fun SurveyResultScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 20.dp, vertical = 24.dp)
                 ) {
-                    Text(text = "done")
+                    Text(text = "Завершить")
                 }
             }
         )
@@ -214,7 +214,7 @@ private fun SurveyBottomBar(
                     onClick = onDonePressed,
                     enabled = questionState.enableNext
                 ) {
-                    Text(text = "done")
+                    Text(text = "Завершить")
                 }
             } else {
                 Button(

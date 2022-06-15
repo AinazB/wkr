@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 
 class QuestionState(
     val question: Question,
+    val correctAnswer: String,
     val questionIndex: Int,
     val totalQuestionsCount: Int,
     val showPrevious: Boolean,
@@ -18,7 +19,8 @@ class QuestionState(
 sealed class TestState {
     data class Questions(
         val surveyTitle: String = "",
-        val questionsState: List<QuestionState> = emptyList()
+        val questionsState: List<QuestionState> = emptyList(),
+        val showResult: Boolean = false
     ) : TestState() {
         var currentQuestionIndex by mutableStateOf(0)
     }

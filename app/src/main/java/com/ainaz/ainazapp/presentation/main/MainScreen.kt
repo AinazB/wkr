@@ -38,7 +38,7 @@ fun MainScreen(
         }
 
         composable(NavScreen.TestScreen.route) {
-            TestScreen()
+            TestScreen(navController = navController)
         }
 
         composable(NavScreen.DictionaryScreen.route) {

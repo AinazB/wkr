@@ -9,6 +9,7 @@ data class Question(
     val id: Int,
     val questionText: String,
     val answer: PossibleAnswer,
+    val correctAnswer: String = "",
     val description: String? = null,
 )
 
