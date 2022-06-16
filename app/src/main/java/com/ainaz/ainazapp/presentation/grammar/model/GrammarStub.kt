@@ -66,7 +66,7 @@ val advanced = listOf(
 
 )
 
-val topicDetailStub by lazy {
+val presentSimple =
     TopicDetail(
         content = listOf(
             Content.TitleContent("Present Simple - простое настоящее время"),
@@ -123,6 +123,42 @@ val topicDetailStub by lazy {
             )
         )
     )
-}
+
+val verbToBe = TopicDetail(
+    content = listOf(
+        Content.TitleContent(
+            "Глагол to be в английском языке"
+        ),
+        Content.SubtitleContent(
+            "Значение глагола to be - \"быть, находиться\". В отличие от других английских глаголов, глагол to be спрягается (т.е. изменяется по лицам и числам)."
+        ),
+        Content.TitleContent(
+            "Формы глагола to be"
+        ),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("I am", "я есть")),
+                Expression(listOf("He / She / It is", "он, она, оно есть")),
+                Expression(listOf("We are", "мы есть")),
+                Expression(listOf("You are", "ты, вы есть")),
+                Expression(listOf("Тhey are", "они есть"))
+            )
+        ),
+        Content.ExamplesContent(
+            listOf(
+                Example("I am in the room.", "Я нахожусь в комнате."),
+                Example(
+                    "The book is on the table.",
+                    "Книга лежит на столе."
+                )
+            )
+        ),
+    )
+)
+
+val beginnerTopics = listOf(
+    verbToBe,
+    presentSimple
+)
 
 

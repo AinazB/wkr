@@ -15,14 +15,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ainaz.ainazapp.presentation.grammar.Content.*
 import com.ainaz.ainazapp.presentation.grammar.components.Table
-import com.ainaz.ainazapp.presentation.grammar.model.topicDetailStub
+import com.ainaz.ainazapp.presentation.grammar.model.beginnerTopics
 import com.ainaz.ainazapp.presentation.test.PossibleAnswer
 import com.ainaz.ainazapp.presentation.theme.cardBackgroundColor2
 
 @Composable
 fun TopicDetail(topicId: Long?) {
     LazyColumn(modifier = Modifier.padding(16.dp)) {
-        items(topicDetailStub.content) { content ->
+        items(beginnerTopics[topicId?.toInt() ?: 0].content) { content ->
             when (content) {
                 is TitleContent -> {
                     Text(
