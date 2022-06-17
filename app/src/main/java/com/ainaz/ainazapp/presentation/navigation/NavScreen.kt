@@ -9,5 +9,5 @@ sealed class NavScreen(val route: String) {
     object LearnScreen : NavScreen(route = "LearnScreen")
     object VocabularyScreen: NavScreen(route = "Vocabulary")
 
-    object TopicDetail : NavScreen(route = "TopicDetail/{topicId}")
+    object TopicDetail : NavScreen(route = "TopicDetail/{topicId}/{level}")
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ainazApp</string>
+    <string name="app_name">EnglishGrammar</string>
 
     <string name="question_count">\u00A0из %d</string>
 </resources>

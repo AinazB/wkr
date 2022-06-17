@@ -24,12 +24,13 @@ fun TopicList(
     navController: NavController,
     modifier: Modifier,
     topics: List<Topic>,
+    level: Int,
     onClick: () -> Unit
 ) {
     LazyColumn(modifier = modifier.padding(8.dp)) {
         itemsIndexed(topics) { index, topic ->
             TopicListItem(topic = topic) {
-                navController.navigate("TopicDetail/$index")
+                navController.navigate("TopicDetail/$index/$level")
             }
         }
     }

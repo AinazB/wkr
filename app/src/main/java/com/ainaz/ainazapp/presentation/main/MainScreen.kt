@@ -53,9 +53,12 @@ fun MainScreen(
             NavScreen.TopicDetail.route,
             arguments = listOf(navArgument("topicId") {
                 type = NavType.LongType
+            }, navArgument("level") {
+                type = NavType.IntType
             })
         ) { backStackEntry ->
-            TopicDetail(backStackEntry.arguments?.getLong("topicId"))
+            val args = backStackEntry.arguments
+            TopicDetail(args?.getLong("topicId"), args?.getInt("level", 0))
         }
     }
 }

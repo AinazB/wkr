@@ -31,12 +31,13 @@ fun GrammarScreen(navController: NavController) {
         HorizontalPager(
             3, state = pagerState
         ) {
-            when(pagerState.currentPage) {
+            when (pagerState.currentPage) {
                 0 -> {
                     TopicList(
                         navController = navController,
                         modifier = Modifier.fillMaxSize(),
-                        topics = beginner
+                        topics = beginner,
+                        level = 0
                     ) {
 
                     }
@@ -45,7 +46,7 @@ fun GrammarScreen(navController: NavController) {
                     TopicList(
                         navController = navController,
                         modifier = Modifier.fillMaxSize(),
-                        topics = intermediate
+                        topics = intermediate, level = 1
                     ) {
 
                     }
@@ -54,7 +55,7 @@ fun GrammarScreen(navController: NavController) {
                     TopicList(
                         navController = navController,
                         modifier = Modifier.fillMaxSize(),
-                        topics = advanced
+                        topics = advanced, level = 2
                     ) {
 
                     }
