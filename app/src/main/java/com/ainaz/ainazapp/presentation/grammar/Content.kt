@@ -11,7 +11,7 @@ sealed class Content {
     data class TestContent(val test: Test) : Content()
 }
 
-data class Example(val title: String, val subtitle: String)
+data class Example(val title: String, val subtitle: String = "")
 
 data class Expression(val forms: List<String>)
 

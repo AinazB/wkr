@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
@@ -37,7 +38,7 @@ fun LearnWordsScreen(
     HorizontalPager(count = uiState.value.result.size, modifier = Modifier.fillMaxSize()) { page ->
         Flippable(
             modifier = Modifier
-                .size(300.dp)
+                .size(360.dp)
                 .graphicsLayer {
                     val pageOffset = calculateCurrentOffsetForPage(page).absoluteValue
                     lerp(
@@ -60,12 +61,14 @@ fun LearnWordsScreen(
                         text = uiState.value.result[page].text,
                         style = MaterialTheme.typography.h6,
                         fontSize = 32.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
                     )
-                    Text(
-                        text = uiState.value.result[page].transcription,
-                        style = MaterialTheme.typography.h6
-                    )
+                    if (uiState.value.result[page].transcription.isNotEmpty()) {
+                        Text(
+                            text = uiState.value.result[page].transcription,
+                            style = MaterialTheme.typography.h6
+                        )
+                    }
                 }
 
             },
@@ -74,8 +77,10 @@ fun LearnWordsScreen(
                     Text(
                         text = uiState.value.result[page].translation,
                         style = MaterialTheme.typography.h6,
-                        fontSize = 32.sp,
-                        fontWeight = FontWeight.Bold
+                        modifier = Modifier.padding(8.dp),
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
                     )
                 }
             },
@@ -90,7 +95,8 @@ fun CardContainer(content: @Composable () -> Unit) {
     Surface(
         color = cardBackgroundColor2,
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .padding(8.dp),
         shape = RoundedCornerShape(16.dp)
     ) {
         Column(

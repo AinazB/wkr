@@ -3,14 +3,16 @@ package com.ainaz.ainazapp.presentation.vocabulary
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ainaz.ainazapp.domain.model.localdictionary.Word
 
 @Composable
 fun VocabularyScreen() {
+    val viewModel: LexVM = hiltViewModel()
     LazyColumn() {
         items(vocabulary) { lex ->
             LexItem(title = lex.text, subtitle = lex.description) {
-
+                viewModel.insertWordIntoUserDictionary(it)
             }
         }
     }
@@ -19,12 +21,12 @@ fun VocabularyScreen() {
 
 val vocabulary = listOf(
     Word(
-        text = "IDE (integrated development environment)",
-        description = "an application normally consisting of a source code editor, a compiler and/or interpreter, build-automation tools, and a debugger"
-    ),
-    Word(
         text = "open source",
         description = "a program in which the code is distributed allowing programmers to alter and change the original software as much as they like"
+    ),
+    Word(
+        text = "IDE (integrated development environment)",
+        description = "an application normally consisting of a source code editor, a compiler and/or interpreter, build-automation tools, and a debugger"
     ),
     Word(
         text = "feature",

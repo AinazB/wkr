@@ -62,7 +62,7 @@ fun DictionaryScreen(navController: NavController) {
                 }
                 items(uiState.value.result) { word ->
                     WordItem(word = word) {
-                        showWordInfoDialog.value = true
+                        //showWordInfoDialog.value = true
                     }
                 }
                 item {

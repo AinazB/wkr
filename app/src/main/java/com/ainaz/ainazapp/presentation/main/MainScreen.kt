@@ -23,7 +23,7 @@ fun MainScreen(
 ) {
     NavHost(
         navController = navController,
-        startDestination = NavScreen.GrammarScreen.route
+        startDestination = NavScreen.TestScreen.route
     ) {
         composable(NavScreen.GrammarScreen.route) {
             GrammarScreen(navController = navController)
