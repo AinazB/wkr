@@ -672,6 +672,323 @@ val prepOfTime = TopicDetail(
     )
 )
 
+val questionForm = TopicDetail(
+    listOf(
+        Content.TitleContent("Общий вопрос в английском языке"),
+        Content.SubtitleContent("Общий вопрос задается, чтобы получить подтверждение или опровержение высказанной мысли, то есть ответ «да» или «нет». \n Если сказуемое выражено глаголом to have или to be, то оно ставится в начале предложения. После него следует подлежащее:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("Are you still sleeping?", "Вы все еще спите?"),
+                Example("Вы все еще спите?", "У вас нет лишней сигареты?"),
+            )
+        ),
+        Content.SubtitleContent("Если сказуемое включает в себя вспомогательный или модальный глагол, то он (или первый из них, если их несколько) ставится перед подлежащим:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("Could you help me?", "Не могли бы вы мне помочь?"),
+                Example("Would you like some coffee?", "Хочешь кофе?"),
+            )
+        ),
+        Content.SubtitleContent("Если сказуемое выражено глаголом в Present Simple или Past Simple, то в качестве вспомогательного глагола нужно использовать do / does или did:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("Do you speak German?", "Вы говорите по-немецки?"),
+                Example("Did you lose your wallet again?", "Ты опять потерял бумажник?"),
+            )
+        ),
+
+
+        )
+)
+
+val pastSimple = TopicDetail(
+    listOf(
+        Content.TitleContent("Past Simple - простое прошедшее время"),
+        Content.SubtitleContent("Время Past Simple используется для обозначения действия, которое произошло в определенное время в прошлом и время совершения которого уже истекло. Для уточнения момента совершения действия в прошлом при использовании времени Past Simple обычно используются такие слова, как:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("five days ago - пять дней назад"),
+                Example("last year - в прошлом году"),
+                Example("yesterday - вчера"),
+            )
+        ),
+        Content.TitleContent("Образование Past Simple"),
+        Content.SubtitleContent("Утвердительные предложения:"),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("I played", "We played")),
+                Expression(listOf("You played", "You played")),
+                Expression(listOf("He/she/it played", "They played")),
+            )
+        ),
+        Content.SubtitleContent("Вопросительные предложения:"),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("Did I play?", "Did we play?")),
+                Expression(listOf("Did you play?", "Did you play?")),
+                Expression(listOf("Did he/she/it play?", "Did they play?")),
+            )
+        ),
+        Content.SubtitleContent("Отрицательные предложения:"),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("I did not play", "We did not play")),
+                Expression(listOf("You did not play", "You did not play")),
+                Expression(listOf("He / she / it did not play", "They did not play")),
+            )
+        ),
+        Content.SubtitleContent("Для того, чтобы поставить английский глагол во время Past Simple, нужно использовать его «вторую форму». Для большинства глаголов она образуется прибавлением окончания -ed:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("examine – examined"),
+                Example("enjoy – enjoyed"),
+                Example("close – closed"),
+            )
+        ),
+        Content.SubtitleContent("Однако есть также достаточно большая группа неправильных английских глаголов, которые образуют форму прошедшего времени не по общим правилам, для них форму прошедшего времени нужно просто запомнить."),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "We saw your dog two blocks from here.",
+                    "Мы видели вашу собаку в двух кварталах отсюда."
+                )
+            )
+        ),
+        Content.SubtitleContent("В вопросительном предложении перед подлежащим нужно использовать вспомогательный глагол do в прошедшем времени – did, а после подлежащего поставить основной, значимый глагол в начальной форме:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "Did you wash your hands?",
+                    "Ты помыл руки?"
+                ),
+                Example(
+                    "Did they sign the contract?",
+                    "Они подписали контракт?"
+                )
+            )
+        ),
+        Content.SubtitleContent("В вопросительном предложении перед подлежащим нужно использовать вспомогательный глагол do в прошедшем времени – did, а после подлежащего поставить основной, значимый глагол в начальной форме:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "I saw Jeremy in the bank.",
+                    "Я видел Джереми в банке."
+                ),
+                Example(
+                    "The old man often visited me.",
+                    "Старик часто меня навещал."
+                ),
+                Example(
+                    "I noticed this charming shop girl each time I went to buy something.",
+                    "Я замечал эту очаровательную продавщицу каждый раз, когда шел за покупками."
+                ),
+                Example(
+                    "I heard a strange sound, looked back, and saw a huge cat sitting on the table.",
+                    "Я услышал странный звук, обернулся и увидел здоровенного кота, сидящего на столе."
+                )
+            )
+        ),
+        Content.TestContent(
+            Test(
+                "", listOf(
+                    Question(
+                        id = 1,
+                        questionText = " I _____ to the mall after school.",
+                        correctAnswer = "went",
+                        answer = PossibleAnswer.SingleChoice(
+                            listOf(
+                                "goed",
+                                "gone",
+                                "went"
+                            )
+                        )
+                    ),
+                    Question(
+                        id = 2,
+                        questionText = "My brother _____ a bear an hour ago.",
+                        correctAnswer = "saw",
+                        answer = PossibleAnswer.SingleChoice(
+                            listOf(
+                                "seen",
+                                "saw",
+                                "sees"
+                            )
+                        )
+                    ),
+                    Question(
+                        id = 3,
+                        questionText = "_____ Mike visit his grandmother last night?",
+                        correctAnswer = "Did",
+                        answer = PossibleAnswer.SingleChoice(
+                            listOf(
+                                "Did",
+                                "Are",
+                                "Does"
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+
+val futureSimple = TopicDetail(
+    listOf(
+        Content.TitleContent("Future Simple - простое будущее время"),
+        Content.SubtitleContent("Время Future Simple ссылается на действие, которое совершится в неопределенном или отдаленном будущем. Простое будущее время в английском языке обычно используется с обстоятельствами:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("tomorrow – завтра"),
+                Example("next year – в следующем году"),
+                Example("in five years – через пять лет"),
+            )
+        ),
+        Content.TitleContent("Образование Future Simple"),
+        Content.SubtitleContent("Утвердительные предложения:"),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("I will play", "We will play")),
+                Expression(listOf("You will play", "You will play")),
+                Expression(listOf("He / she / it will play", "They will play")),
+            )
+        ),
+        Content.SubtitleContent("Вопросительные предложения:"),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("Will I play?", "Will we play?")),
+                Expression(listOf("Will you play?", "Will you play?")),
+                Expression(listOf("Will he / she / it play?", "Will they play?")),
+            )
+        ),
+        Content.SubtitleContent("Отрицательные предложения:"),
+        Content.TableContent(
+            listOf(
+                Expression(listOf("I will not play", "We will not play")),
+                Expression(listOf("You will not play", "You will not play")),
+                Expression(listOf("He / she / it will not play", "They will not play")),
+            )
+        ),
+        Content.SubtitleContent("Для того, чтобы поставить английский глагол во время Past Simple, нужно использовать его «вторую форму». Для большинства глаголов она образуется прибавлением окончания -ed:"),
+        Content.ExamplesContent(
+            listOf(
+                Example("examine – examined"),
+                Example("enjoy – enjoyed"),
+                Example("close – closed"),
+            )
+        ),
+        Content.SubtitleContent(
+            "Для того, чтобы поставить глагол во временную форму Future Simple, нужно использовать его начальную форму и вспомогательный глагол will. В устной речи will чаще всего сокращается до формы ‘ll, которая может использоваться во всех лицах.\n" +
+                    "\n" +
+                    "Примечание:\n" +
+                    "Ранее при употреблении будущего времени для первого лица (I, we) было принято использовать вспомогательный глагол shall:"
+        ),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "I shall write to you every day.",
+                    "Я буду писать тебе каждый день."
+                )
+            )
+        ),
+        Content.SubtitleContent("Однако, в современном английском, особенно в устной речи, will стал использоваться для всех лиц:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "I will go to Paris next summer.",
+                    "Следующим летом я поеду в Париж."
+                ),
+            )
+        ),
+        Content.SubtitleContent("Глагол shall в настоящее время используется довольно редко в качестве модального глагола в предложении что-то сделать или помочь:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "Shall we dance?",
+                    "Может, потанцуем?"
+                )
+
+            )
+        ),
+        Content.SubtitleContent("В вопросительном предложении вспомогательный глагол will ставится перед подлежащим. Значимый глагол остается после подлежащего в своей начальной форме:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "Will we go to the beach?",
+                    "Мы пойдем на пляж?"
+                ),
+                Example(
+                    "Will your boss agree with our conditions?",
+                    "Ваш босс согласится с нашими условиями?"
+                )
+            )
+        ),
+        Content.TitleContent("Случаи употребления Future Simple:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "We'll return in 4 hours.",
+                    "Мы вернемся через 4 часа."
+                ),
+                Example(
+                    "It will not be easy to convince him.",
+                    "Его будет нелегко убедить."
+                ),
+                Example(
+                    "I promise I'll visit you every day.",
+                    "Обещаю, что буду навещать тебя каждый день."
+                ),
+                Example(
+                    "I cannot wait for my vacation. I will go to the river, swim and fish every day..",
+                    "Не могу дождаться своего отпуска. Буду каждый день ходить к речке, купаться и ловить рыбу."
+                )
+            )
+        ),
+        Content.TestContent(
+            Test(
+                "", listOf(
+                    Question(
+                        id = 1,
+                        questionText = "He _____ arrive on time.",
+                        correctAnswer = "will",
+                        answer = PossibleAnswer.SingleChoice(
+                            listOf(
+                                "will",
+                                "is",
+                                "not"
+                            )
+                        )
+                    ),
+                    Question(
+                        id = 2,
+                        questionText = "Will your folks _____ before Tuesday?",
+                        correctAnswer = "leave",
+                        answer = PossibleAnswer.SingleChoice(
+                            listOf(
+                                "leaving",
+                                "leave",
+                                "leaves"
+                            )
+                        )
+                    ),
+                    Question(
+                        id = 3,
+                        questionText = "We _____ get there until after dark.",
+                        correctAnswer = "won't",
+                        answer = PossibleAnswer.SingleChoice(
+                            listOf(
+                                "will",
+                                "won't",
+                                "will'nt"
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+
 
 val beginnerTopics = listOf(
     verbToBe,
@@ -679,5 +996,8 @@ val beginnerTopics = listOf(
     prepOfTime,
     pron,
     presentSimple,
+    pastSimple,
+    futureSimple,
     placeAdverb,
+    questionForm
 )

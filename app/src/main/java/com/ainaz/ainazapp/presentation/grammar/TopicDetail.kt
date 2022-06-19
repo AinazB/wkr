@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ainaz.ainazapp.presentation.grammar.Content.*
 import com.ainaz.ainazapp.presentation.grammar.components.Table
+import com.ainaz.ainazapp.presentation.grammar.model.advancedTopics
 import com.ainaz.ainazapp.presentation.grammar.model.beginnerTopics
 import com.ainaz.ainazapp.presentation.grammar.model.intermediateTopics
 import com.ainaz.ainazapp.presentation.test.PossibleAnswer
@@ -35,6 +36,7 @@ fun TopicDetail(topicId: Long?, level: Int?) {
     val topics = when (level) {
         0 -> beginnerTopics
         1 -> intermediateTopics
+        2 -> advancedTopics
         else -> {
             intermediateTopics
         }

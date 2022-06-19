@@ -2,6 +2,7 @@ package com.ainaz.ainazapp.presentation.grammar.model
 
 import com.ainaz.ainazapp.presentation.grammar.Content
 import com.ainaz.ainazapp.presentation.grammar.Example
+import com.ainaz.ainazapp.presentation.grammar.Expression
 import com.ainaz.ainazapp.presentation.grammar.TopicDetail
 
 val conditionals = TopicDetail(
@@ -173,6 +174,97 @@ val usedTo = TopicDetail(
     )
 )
 
+val haveTo = TopicDetail(
+    listOf(
+        Content.TitleContent("Модальный глагол Have to"),
+        Content.SubtitleContent(
+            "В отличие от остальных модальных глаголов Have to / have got to не являются недостаточными глаголами. Они, как и простые глаголы, способны отражать категории лица и числа. Опять же, в отличие от других модальных глаголов в английском языке, связанный с ними значащий глагол используется с частицей to. Для того, чтобы образовать вопросительную и отрицательную форму, нужно использовать вспомогательный глагол to do:"
+        ),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "Do you really have to leave so early?",
+                    "Тебе действительно нужно уйти так рано?"
+                ),
+                Example(
+                    "You don't have to go with us if you don't want to.",
+                    "Тебе не обязательно идти с нами, если тебе не хочется."
+                ),
+            )
+        ),
+        Content.TitleContent("Формы модального глагола Have to:"),
+        Content.TableContent(
+            listOf(
+                Expression(
+                    listOf("I have to (don't have to)", "We have to (don't have to)"),
+                ),
+                Expression(
+                    listOf("You have to (don't have to)", "You have to (don't have to)"),
+                ),
+                Expression(
+                    listOf("He/She/It has to (doesn't have to)", "They have to (don't have to)"),
+                )
+            )
+        ),
+        Content.TableContent(
+            listOf(
+                Expression(
+                    listOf("I had to (did not have to)", "We had to (did not have to)"),
+                ),
+                Expression(
+                    listOf("You had to (did not have to)", "You had to (did not have to)"),
+                ),
+                Expression(
+                    listOf("He/She/It had to (did not have to)", "They had to (did not have to)"),
+                )
+            )
+        ),
+        Content.SubtitleContent("Разница между глаголами Have to и Have got to малоразличима, но, как правило, have to означает повторяющееся действие, а have got to – конкретное:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "I have to visit my grandma every week.",
+                    "Я должен навещать бабушку каждую неделю."
+                ),
+                Example(
+                    "Have you got to visit your grandma tomorrow?",
+                    "Тебе нужно завтра навестить бабушку?"
+                )
+            )
+        ),
+        Content.SubtitleContent("Глагол Have (got) to используется для выражения необходимости что-то сделать из-за определенных обстоятельств, то есть не из добровольного стремления:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "Alex has to make many international phone calls.",
+                    "Алексу приходится делать много международных звонков."
+                ),
+                Example(
+                    "We were very short on time so we had to take taxi.",
+                    "У нас было очень мало времени, поэтому мы были вынуждены взять такси."
+                )
+            )
+        ),
+        Content.SubtitleContent("Также Have to заменяет модальный глагол Must там, где тот не может использоваться – в прошедшем и будущем времени, а также при отрицаниях:"),
+        Content.ExamplesContent(
+            listOf(
+                Example(
+                    "Yesterday I had to help my sister.",
+                    "Вчера я должен был помочь сестре."
+                ),
+                Example(
+                    "The road is blocked, the bus will have to go around.",
+                    "Дорога перекрыта, автобусу придется ехать в объезд."
+                ),
+                Example(
+                    "You don't have to work full time.",
+                    "Вам не нужно работать полный рабочий день."
+                ),
+            )
+        ),
+    )
+)
+
 val intermediateTopics = listOf(
-    conditionals, modal, usedTo
+    conditionals, modal, usedTo, haveTo
 )
